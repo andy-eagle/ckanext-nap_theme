@@ -807,7 +807,7 @@ class NapThemePlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
             'nap_theme_get_date_time_formatted' : get_date_time_formatted,
             'nap_theme_get_facets' : get_facets,
             'nap_theme_get_all_users': get_all_users,
-            'nap_theme_send_application_submitted_email' : send_application_submitted_email,
+#            'nap_theme_send_application_submitted_email' : send_application_submitted_email,
             'nap_theme_get_reset_password_feature_flag' : get_reset_password_feature_flag,
             'nap_theme_get_create_account_feature_flag' : get_create_account_flag
             }
