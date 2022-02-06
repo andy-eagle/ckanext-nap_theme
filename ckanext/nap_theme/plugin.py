@@ -17,12 +17,12 @@ from flask.templating import render_template
 from datetime import date, datetime
 from ckan.views.user import RequestResetView
 from six import text_type
-from notifications_python_client.notifications import NotificationsAPIClient
+#from notifications_python_client.notifications import NotificationsAPIClient
 from ckan.common import config
 
 # GovNotify API Key
-notify_api_key = config.get('ckanext.nap_theme.gov_notify_key', None)
-notifications_client = NotificationsAPIClient(notify_api_key)
+#notify_api_key = config.get('ckanext.nap_theme.gov_notify_key', None)
+#notifications_client = NotificationsAPIClient(notify_api_key)
 
 # Feature flags
 reset_password_flag = config.get('ckanext.nap_theme.reset_password_feature_flag', False)
@@ -157,52 +157,52 @@ def admin_delete_user():
     return h.redirect_to(return_string)
 
 # gov notify functions
-def send_application_submitted_email(user):
-    email = user.email
-    response = notifications_client.send_email_notification(
-        email_address=email, # required string
-        template_id='2dbb9dd7-938c-4887-8b56-5023cd491382', # required UUID string
-        personalisation={
-            'name': user.fullname,
-        }        
-    )
-    return response
+#def send_application_submitted_email(user):
+#    email = user.email
+#    response = notifications_client.send_email_notification(
+#        email_address=email, # required string
+#        template_id='2dbb9dd7-938c-4887-8b56-5023cd491382', # required UUID string
+#        personalisation={
+#            'name': user.fullname,
+#        }        
+#    )
+#    return response
 
-def send_application_approved_email(email, name, sign_in):
+#def send_application_approved_email(email, name, sign_in):
+#
+#    response = notifications_client.send_email_notification(
+#        email_address=email, # required string
+#        template_id='971d0b66-3466-443f-8c94-422ea9950e18', # required UUID string
+#        personalisation={
+#            'name': name,
+#            'sign_in' : sign_in
+#        }        
+#    )
+#    return response
 
-    response = notifications_client.send_email_notification(
-        email_address=email, # required string
-        template_id='971d0b66-3466-443f-8c94-422ea9950e18', # required UUID string
-        personalisation={
-            'name': name,
-            'sign_in' : sign_in
-        }        
-    )
-    return response
+#def send_application_rejected_email(email, name, reason):
+#
+#    response = notifications_client.send_email_notification(
+#        email_address=email, # required string
+#        template_id='de30ebe1-b6d1-4830-b87a-f7d9fb474204', # required UUID string
+#        personalisation={
+#            'name': name,
+#            'reason' : reason
+#        }        
+#    )
+#    return response
 
-def send_application_rejected_email(email, name, reason):
+#def reset_password_link_email(email, name, reset_link):
 
-    response = notifications_client.send_email_notification(
-        email_address=email, # required string
-        template_id='de30ebe1-b6d1-4830-b87a-f7d9fb474204', # required UUID string
-        personalisation={
-            'name': name,
-            'reason' : reason
-        }        
-    )
-    return response
-
-def reset_password_link_email(email, name, reset_link):
-
-    response = notifications_client.send_email_notification(
-        email_address=email, # required string
-        template_id='c093efd1-70c7-4242-a153-cab3b4b715aa', # required UUID string
-        personalisation={
-            'name': name,
-            'reset_link' : reset_link
-        }        
-    )
-    return response
+#    response = notifications_client.send_email_notification(
+#        email_address=email, # required string
+#        template_id='c093efd1-70c7-4242-a153-cab3b4b715aa', # required UUID string
+#        personalisation={
+#            'name': name,
+#            'reset_link' : reset_link
+#        }        
+#    )
+#    return response
 
 # helper functions
 def get_extra(package_extras, key):
