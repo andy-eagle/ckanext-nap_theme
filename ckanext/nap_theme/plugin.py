@@ -17,7 +17,6 @@ from flask.templating import render_template
 from datetime import date, datetime
 from ckan.views.user import RequestResetView
 from six import text_type
-#from notifications_python_client.notifications import NotificationsAPIClient
 from ckan.common import config
 
 # GovNotify API Key
